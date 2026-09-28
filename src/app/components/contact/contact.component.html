@@ -1,0 +1,20 @@
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="section__title">{{ langService.translate('contact.title') }}</h2>
+    <p class="contact-subtitle">{{ langService.translate('contact.subtitle') }}</p>
+
+    <div class="contact-grid">
+      @for (card of contactCards; track card.value) {
+        <article class="contact-card">
+          <div class="contact-card__icon">
+            <img [src]="card.icon" [alt]="getTitle(card)" />
+          </div>
+          <h3 class="contact-card__title">{{ getTitle(card) }}</h3>
+          <a [href]="card.link" target="_blank" rel="noopener" class="contact-card__value">
+            {{ card.value }}
+          </a>
+        </article>
+      }
+    </div>
+  </div>
+</section>
