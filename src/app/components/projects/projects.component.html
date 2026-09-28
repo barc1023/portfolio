@@ -1,0 +1,64 @@
+<section id="projects" class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">{{ langService.translate('projects.title') }}</h2>
+    <div class="projects-grid">
+      @for (project of projects; track project.id) {
+        <article class="project-card" (click)="openModal(project)">
+          <div class="project-card__media">
+            <img [src]="project.img" [alt]="getProjectTitle(project)" class="project-card__img" />
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">{{ getProjectTitle(project) }}</h3>
+            <p class="project-card__description">{{ getProjectDescription(project) }}</p>
+            <div class="project-card__tags">
+              @for (tag of project.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Project modal -->
+@if (isModalOpen()) {
+  <div class="modal is-open">
+    <div class="modal-overlay" (click)="closeModal()"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <button class="modal-close" (click)="closeModal()" aria-label="Close">&times;</button>
+      @if (selectedProject(); as project) {
+        <div class="modal-content">
+          <img [src]="project.img" [alt]="getProjectTitle(project)" class="modal-img" />
+          <div class="modal-body">
+            <h3 class="modal-title">{{ getProjectTitle(project) }}</h3>
+            <p class="modal-description">{{ getProjectDescription(project) }}</p>
+            <div class="modal-tags">
+              @for (tag of project.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+            <div class="modal-meta">
+              <div class="modal-meta-item">
+                <span class="modal-meta-label">{{ langService.translate('projects.client') }}</span>
+                <span class="modal-meta-value">{{ getProjectClient(project) }}</span>
+              </div>
+              <div class="modal-meta-item">
+                <span class="modal-meta-label">{{ langService.translate('projects.year') }}</span>
+                <span class="modal-meta-value">{{ project.year }}</span>
+              </div>
+              <div class="modal-meta-item">
+                <span class="modal-meta-label">{{ langService.translate('projects.role') }}</span>
+                <span class="modal-meta-value">{{ getProjectRole(project) }}</span>
+              </div>
+            </div>
+            <a [href]="project.link" target="_blank" rel="noopener" class="btn">
+              {{ langService.translate('projects.viewProject') }}
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+}
