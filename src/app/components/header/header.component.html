@@ -1,0 +1,32 @@
+<header class="header">
+  <nav class="nav container">
+    <a href="#home" class="nav-logo">Software Developer</a>
+    <ul class="nav-menu" #navMenu [class.is-open]="isMenuOpen()">
+      @for (link of navLinks; track link.href) {
+        <li>
+          <a
+            [href]="link.href"
+            class="nav-link"
+            [class.is-active]="isActive(link.href)"
+            (click)="setActiveLink(link.href)"
+          >
+            {{ langService.translate(link.key) }}
+          </a>
+        </li>
+      }
+      <span
+        class="nav-indicator"
+        #navIndicator
+        [class.is-visible]="indicatorVisible()"
+      ></span>
+    </ul>
+    <button class="nav-lang" (click)="onLanguageToggle()" aria-label="Change language">
+      {{ langService.langToggleLabel() }}
+    </button>
+    <button class="nav-toggle" (click)="toggleMenu()" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
