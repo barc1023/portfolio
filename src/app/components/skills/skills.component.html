@@ -1,0 +1,56 @@
+<section id="skills" class="section">
+  <div class="container">
+    <h2 class="section__title">{{ langService.translate('skills.title') }}</h2>
+    <p class="skills-subtitle">{{ langService.translate('skills.subtitle') }}</p>
+
+    <div class="skills-grid">
+      @for (group of skillGroups; track group.id) {
+        <article class="skill-card" (click)="openModal(group)">
+          <h3 class="skill-card__title">{{ langService.translate(group.titleKey) }}</h3>
+          <div class="tags-container">
+            @for (badge of group.badges; track badge.title) {
+              <div class="skill-badge">
+                <img [src]="badge.icon" [alt]="badge.title" />
+                <span>{{ badge.title }}</span>
+              </div>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Skill modal -->
+@if (isModalOpen()) {
+  <div class="modal is-open">
+    <div class="modal-overlay" (click)="closeModal()"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <button class="modal-close" (click)="closeModal()" aria-label="Close">&times;</button>
+      <div class="modal-body">
+        @if (selectedGroup(); as group) {
+          <h3 class="modal-title">{{ langService.translate(group.titleKey) }}</h3>
+          <div class="skill-modal-list">
+            @for (badge of group.badges; track badge.title) {
+              <div class="skill-modal-item">
+                <div class="skill-modal-header">
+                  <img [src]="badge.icon" [alt]="badge.title" class="skill-modal-icon" />
+                  <div>
+                    <h4 class="skill-modal-name">{{ badge.title }}</h4>
+                    <span class="skill-modal-level">{{ badge.level }}</span>
+                  </div>
+                </div>
+                <div class="skill-modal-body">
+                  <h4 class="skill-modal-label">{{ langService.translate('skills.howUse') }}</h4>
+                  <p class="skill-modal-text">{{ badge.use }}</p>
+                  <h4 class="skill-modal-label">{{ langService.translate('skills.evidence') }}</h4>
+                  <p class="skill-modal-text">{{ badge.evidence }}</p>
+                </div>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}
