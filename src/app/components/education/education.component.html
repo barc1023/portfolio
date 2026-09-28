@@ -1,0 +1,15 @@
+<section id="education" class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">{{ langService.translate('education.title') }}</h2>
+    <p>{{ langService.translate('education.description') }}</p>
+    <div class="education-list">
+      @for (item of educationItems; track item.degree.es) {
+        <div class="education-item">
+          <h3 class="education-degree">{{ getLocalizedValue(item.degree) }}</h3>
+          <span class="education-institution">{{ getLocalizedValue(item.institution) }}</span>
+          <span class="education-period">{{ getLocalizedValue(item.period) }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

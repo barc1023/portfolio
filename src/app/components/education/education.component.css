@@ -1,0 +1,34 @@
+:host {
+  display: block;
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.education-item {
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary-color);
+  background-color: var(--bg-color-card);
+  border-radius: 0 0.5rem 0.5rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.education-degree {
+  margin-bottom: 0.25rem;
+  color: var(--text-color);
+}
+
+.education-institution {
+  display: block;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.education-period {
+  color: var(--text-color-light);
+  font-size: 0.9rem;
+}
