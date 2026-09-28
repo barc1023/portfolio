@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "aboutMe": "Sobre mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Hola, soy ",
+    "description": "Estudiante de Técnico en Desarrollo de Software en ITSE Panamá, enfocado en desarrollo full stack. Construyo aplicaciones web y móviles con Angular, Laravel, PHP y bases de datos SQL, desde sistemas de gestión hasta plataformas tipo marketplace.",
+    "viewProjects": "Ver proyectos",
+    "downloadCV": "Descargar CV",
+    "typed": ["Estudiante de Desarrollo de Software", "Desarrollador Full Stack", "PHP & Laravel Developer"]
+  },
+  "aboutMe": {
+    "title": "Sobre mí",
+    "description": "Soy estudiante de Técnico en Desarrollo de Software en el ITSE (Instituto Técnico Superior Especializado) en Panamá, cursando desde enero de 2025. Además de mis proyectos académicos, tengo experiencia previa como Ayudante de Desarrollo, donde colaboré en la construcción de software de gestión comercial. Me gusta trabajar en todo el ciclo de una aplicación: desde el diseño de bases de datos hasta la interfaz de usuario, con especial interés en Angular, PHP/Laravel y el diseño de esquemas de bases de datos relacionales."
+  },
+  "skills": {
+    "title": "Habilidades",
+    "subtitle": "Habilidades técnicas y herramientas que manejo.",
+    "frontend": "Frontend",
+    "backend": "Backend y BD",
+    "tools": "Herramientas",
+    "howUse": "¿Cómo la utilizo?",
+    "evidence": "Evidencia en el curso:"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "viewProject": "Ver proyecto",
+    "client": "Cliente",
+    "year": "Año",
+    "role": "Rol"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "description": "Experiencia profesional y trayectoria laboral.",
+    "role": "Ayudante de Desarrollo — Distribuidora Miqui Chong",
+    "period": "Octubre 2022 – Agosto 2023",
+    "description2": "Colaboré en la construcción de software de gestión comercial para la distribuidora, incluyendo módulos de órdenes de venta y facturación al por mayor."
+  },
+  "education": {
+    "title": "Educación",
+    "description": "Formación académica y certificaciones."
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Trabajamos juntos? Escríbeme por cualquiera de estos medios.",
+    "email": "Correo",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  },
+  "aria": {
+    "close": "Cerrar"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Home",
+    "aboutMe": "About Me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Hi, I am ",
+    "description": "Software Development Technical student at ITSE Panama, focused on full stack development. I build web and mobile applications with Angular, Laravel, PHP and SQL databases, from management systems to marketplace platforms.",
+    "viewProjects": "View projects",
+    "downloadCV": "Download CV",
+    "typed": ["Software Development Student", "Full Stack Developer", "PHP & Laravel Developer"]
+  },
+  "aboutMe": {
+    "title": "About Me",
+    "description": "I'm a Software Development Technical student at ITSE (Instituto Tecnico Superior Especializado) in Panama, studying since January 2025. Besides my academic projects, I have previous experience as a Development Assistant, where I collaborated in building commercial management software. I enjoy working across the entire application lifecycle: from database design to the user interface, with a special interest in Angular, PHP/Laravel and relational database schema design."
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technical skills and tools I use.",
+    "frontend": "Frontend",
+    "backend": "Backend & DB",
+    "tools": "Tools",
+    "howUse": "How do I use it?",
+    "evidence": "Course evidence:"
+  },
+  "projects": {
+    "title": "Projects",
+    "viewProject": "View project",
+    "client": "Client",
+    "year": "Year",
+    "role": "Role"
+  },
+  "experience": {
+    "title": "Experience",
+    "description": "Professional experience and career path.",
+    "role": "Development Assistant — Distribuidora Miqui Chong",
+    "period": "October 2022 – August 2023",
+    "description2": "I collaborated in building commercial management software for the distributor, including sales order and wholesale invoicing modules."
+  },
+  "education": {
+    "title": "Education",
+    "description": "Academic background and certifications."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's work together? Reach me through any of these channels.",
+    "email": "Email",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "aria": {
+    "close": "Close"
+  }
+}
