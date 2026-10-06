@@ -3,6 +3,7 @@ export interface ProjectData {
   title: { es: string; en: string };
   description: { es: string; en: string };
   img: string;
+  gallery?: string[];
   tags: string[];
   client: { es: string; en: string };
   year: string;

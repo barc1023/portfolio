@@ -29,12 +29,16 @@
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background-color: var(--bg-color-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-card__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 0.5rem;
 }
 
 .project-card__body {
@@ -60,60 +64,7 @@
   margin-top: 0.5rem;
 }
 
-/* Modal */
-.modal {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
-.modal-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(2px);
-}
-
-.modal-dialog {
-  position: relative;
-  width: min(90%, 700px);
-  max-height: 90vh;
-  overflow-y: auto;
-  background-color: var(--bg-color-card);
-  border: 1px solid var(--border-color);
-  border-radius: 1rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-.modal-close {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg-color);
-  border: 1px solid var(--border-color);
-  border-radius: 50%;
-  color: var(--text-color);
-  font-size: 1.5rem;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 1;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.modal-close:hover {
-  background-color: var(--primary-color);
-  color: var(--text-color);
-  border-color: var(--primary-color);
-}
+/* Modal shell styles are in global styles.css */
 
 .modal-content {
   display: flex;
@@ -122,9 +73,99 @@
 
 .modal-img {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  max-height: 70vh;
+  object-fit: contain;
+  background-color: var(--bg-color-alt);
   border-radius: 1rem 1rem 0 0;
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-color-alt);
+  border-radius: 1rem 1rem 0 0;
+  overflow: hidden;
+}
+
+.carousel__track {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 280px;
+}
+
+.carousel__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carousel__img.is-active {
+  opacity: 1;
+}
+
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  z-index: 2;
+}
+
+.carousel__btn:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.carousel__btn--prev {
+  left: 0.75rem;
+}
+
+.carousel__btn--next {
+  right: 0.75rem;
+}
+
+.carousel__dots {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.carousel__dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.carousel__dot.is-active {
+  background-color: #fff;
+  transform: scale(1.25);
 }
 
 .modal-body {

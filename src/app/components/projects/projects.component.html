@@ -5,7 +5,7 @@
       @for (project of projects; track project.id) {
         <article class="project-card" (click)="openModal(project)">
           <div class="project-card__media">
-            <img [src]="project.img" [alt]="getProjectTitle(project)" class="project-card__img" />
+            <img [src]="project.img" [alt]="getProjectTitle(project)" class="project-card__img" width="1280" height="720" loading="lazy" />
           </div>
           <div class="project-card__body">
             <h3 class="project-card__title">{{ getProjectTitle(project) }}</h3>
@@ -30,7 +30,37 @@
       <button class="modal-close" (click)="closeModal()" aria-label="Close">&times;</button>
       @if (selectedProject(); as project) {
         <div class="modal-content">
-          <img [src]="project.img" [alt]="getProjectTitle(project)" class="modal-img" />
+          @if (project.gallery && project.gallery.length > 1) {
+            <div class="carousel">
+              <div class="carousel__track">
+                @for (img of project.gallery; track img; let i = $index) {
+                  <img
+                    [src]="img"
+                    [alt]="getProjectTitle(project)"
+                    class="carousel__img"
+                    [class.is-active]="i === currentSlide()"
+                    width="1280"
+                    height="720"
+                    loading="lazy"
+                  />
+                }
+              </div>
+              <button class="carousel__btn carousel__btn--prev" (click)="prevSlide($event)" aria-label="Anterior">&lsaquo;</button>
+              <button class="carousel__btn carousel__btn--next" (click)="nextSlide($event)" aria-label="Siguiente">&rsaquo;</button>
+              <div class="carousel__dots">
+                @for (img of project.gallery; track img; let i = $index) {
+                  <button
+                    class="carousel__dot"
+                    [class.is-active]="i === currentSlide()"
+                    (click)="goToSlide(i, $event)"
+                    [attr.aria-label]="'Ir a imagen ' + (i + 1)"
+                  ></button>
+                }
+              </div>
+            </div>
+          } @else {
+            <img [src]="project.img" [alt]="getProjectTitle(project)" class="modal-img" width="1280" height="720" loading="lazy" />
+          }
           <div class="modal-body">
             <h3 class="modal-title">{{ getProjectTitle(project) }}</h3>
             <p class="modal-description">{{ getProjectDescription(project) }}</p>
@@ -53,7 +83,12 @@
                 <span class="modal-meta-value">{{ getProjectRole(project) }}</span>
               </div>
             </div>
-            <a [href]="project.link" target="_blank" rel="noopener" class="btn">
+            <a
+              [href]="project.link"
+              target="_blank"
+              rel="noopener"
+              class="btn"
+            >
               {{ langService.translate('projects.viewProject') }}
             </a>
           </div>
