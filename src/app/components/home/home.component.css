@@ -23,12 +23,15 @@
 
 .hero-img {
   width: 100%;
-  max-width: 320px;
+  max-width: 320px !important;
   aspect-ratio: 1;
+  height: auto;
   object-fit: cover;
+  object-position: center top;
   border-radius: 50%;
   border: 4px solid var(--primary-color);
   box-shadow: 0 4px 20px rgba(74, 127, 193, 0.3);
+  transform: scale(1.15);
 }
 
 .hero-info {
@@ -43,6 +46,17 @@
 }
 
 .hero-name {
+  color: var(--primary-color);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-color-light);
+  margin-bottom: 1rem;
+}
+
+/* Typed.js cursor */
+:host ::ng-deep .typed-cursor {
   color: var(--primary-color);
 }
 
