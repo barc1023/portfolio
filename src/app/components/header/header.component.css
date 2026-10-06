@@ -1,13 +1,13 @@
 :host {
   display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header {
-  position: sticky;
-  top: 0;
   background-color: var(--bg-color);
   border-bottom: 1px solid var(--bg-color-alt);
-  z-index: 100;
 }
 
 .nav {

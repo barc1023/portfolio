@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, ElementRef, ViewChild, AfterViewChecked, AfterViewInit } from '@angular/core';
+import { Component, inject, signal, ElementRef, ViewChild, AfterViewChecked, HostListener, effect } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
@@ -21,11 +21,29 @@ export class HeaderComponent implements AfterViewChecked {
 
   readonly isMenuOpen = signal(false);
   readonly activeLink = signal<string>('#home');
+  readonly indicatorVisible = signal(false);
 
   @ViewChild('navMenu') navMenu!: ElementRef<HTMLUListElement>;
   @ViewChild('navIndicator') navIndicator!: ElementRef<HTMLSpanElement>;
 
-  readonly indicatorVisible = signal(false);
+  constructor() {
+    // Recalculate indicator when language changes
+    effect(() => {
+      this.langService.currentLang();
+      requestAnimationFrame(() => {
+        try {
+          this.updateNavIndicator();
+        } catch (e) {
+          console.error('Error updating nav indicator:', e);
+        }
+      });
+    });
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    this.updateNavIndicator();
+  }
 
   toggleMenu(): void {
     this.isMenuOpen.update((open) => !open);
@@ -38,7 +56,8 @@ export class HeaderComponent implements AfterViewChecked {
   setActiveLink(href: string): void {
     this.activeLink.set(href);
     this.closeMenu();
-    this.updateNavIndicator();
+    // Wait for DOM to update the is-active class before recalculating
+    requestAnimationFrame(() => this.updateNavIndicator());
   }
 
   isActive(href: string): boolean {
