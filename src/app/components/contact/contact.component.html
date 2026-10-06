@@ -7,7 +7,7 @@
       @for (card of contactCards; track card.value) {
         <article class="contact-card">
           <div class="contact-card__icon">
-            <img [src]="card.icon" [alt]="getTitle(card)" />
+            <img [src]="card.icon" [alt]="getTitle(card)" width="48" height="48" loading="lazy" />
           </div>
           <h3 class="contact-card__title">{{ getTitle(card) }}</h3>
           <a [href]="card.link" target="_blank" rel="noopener" class="contact-card__value">

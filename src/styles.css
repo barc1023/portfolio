@@ -41,12 +41,12 @@ body {
   line-height: 1.6;
 }
 
+/* Shared classes — these need to work inside Angular components */
 .container {
   width: min(90%, var(--container-max-width));
   margin-inline: auto;
 }
 
-/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -97,13 +97,80 @@ body {
   border-radius: 9999px;
 }
 
+/* Modal shared styles */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(2px);
+}
+
+.modal-dialog {
+  position: relative;
+  width: min(90%, 700px);
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: var(--bg-color-card);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.modal-close:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border-color: var(--primary-color);
+}
+
+.modal-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  .modal__body {
+  .modal-body {
     padding: 1.25rem;
   }
 
-  .modal__meta {
+  .modal-meta {
     flex-direction: column;
     gap: 0.75rem;
   }
