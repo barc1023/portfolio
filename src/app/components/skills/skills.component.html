@@ -10,7 +10,7 @@
           <div class="tags-container">
             @for (badge of group.badges; track badge.title) {
               <div class="skill-badge">
-                <img [src]="badge.icon" [alt]="badge.title" />
+                <img [src]="badge.icon" [alt]="badge.title" width="40" height="40" loading="lazy" />
                 <span>{{ badge.title }}</span>
               </div>
             }
@@ -34,17 +34,14 @@
             @for (badge of group.badges; track badge.title) {
               <div class="skill-modal-item">
                 <div class="skill-modal-header">
-                  <img [src]="badge.icon" [alt]="badge.title" class="skill-modal-icon" />
+                  <img [src]="badge.icon" [alt]="badge.title" class="skill-modal-icon" width="48" height="48" loading="lazy" />
                   <div>
                     <h4 class="skill-modal-name">{{ badge.title }}</h4>
-                    <span class="skill-modal-level">{{ badge.level }}</span>
                   </div>
                 </div>
                 <div class="skill-modal-body">
                   <h4 class="skill-modal-label">{{ langService.translate('skills.howUse') }}</h4>
                   <p class="skill-modal-text">{{ badge.use }}</p>
-                  <h4 class="skill-modal-label">{{ langService.translate('skills.evidence') }}</h4>
-                  <p class="skill-modal-text">{{ badge.evidence }}</p>
                 </div>
               </div>
             }
